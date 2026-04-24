@@ -1,0 +1,64 @@
+/* ================= OFFER BANNER ================= */
+.offer-banner {
+  background: linear-gradient(135deg, #fde047, #eab308);
+  padding: 30px 50px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 40px auto;
+  box-shadow: 0 10px 25px rgba(234, 179, 8, 0.2);
+}
+
+.offer-banner h4 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #854d0e;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.offer-banner h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0;
+}
+
+.offer-btn {
+  text-align: right;
+}
+
+.offer-btn button {
+  background: #1e293b;
+  color: #ffffff;
+  border: none;
+  padding: 14px 35px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 8px;
+}
+
+.offer-btn button:hover {
+  background: #0f172a;
+  transform: translateY(-2px);
+}
+
+.offer-btn span {
+  display: block;
+  font-size: 13px;
+  color: #854d0e;
+  font-weight: 600;
+}
+
+.offer-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem; /* Creates space between the button and the text */
+}

@@ -1,0 +1,99 @@
+.schedule-interview-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  font-family: sans-serif;
+}
+
+.schedule-interview-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.applicant-info {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  border-left: 4px solid #4a90e2;
+}
+
+.applicant-info p {
+  margin: 5px 0;
+  font-size: 1.1em;
+}
+
+.datepicker-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.datepicker-section h2 {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.react-datepicker {
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.interview-mode-section,
+.location-section {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.interview-mode-section h2,
+.location-section h2 {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.interview-mode-section select,
+.location-section input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+.actions-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.actions-section .confirm-btn,
+.actions-section .cancel-btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.actions-section .confirm-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.actions-section .confirm-btn:hover {
+  background-color: #218838;
+}
+
+.actions-section .cancel-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+.actions-section .cancel-btn:hover {
+  background-color: #5a6268;
+}

@@ -1,0 +1,77 @@
+/* ==========================================================================
+   Employer Authentication Page Styles
+   ========================================================================== */
+
+.employer-register-card {
+  background: #f8f9fa; /* Lighter background for a more professional feel */
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 480px; /* Slightly wider card */
+  text-align: center;
+  border-left: 5px solid #007bff; /* Blue accent for branding */
+}
+
+.employer-register-card h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #343a40; /* Darker heading color */
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.employer-register-card p.subtitle {
+  margin-bottom: 30px;
+  color: #6c757d; /* Softer color for the subtitle */
+  font-size: 16px;
+}
+
+.employer-register-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.employer-register-card input {
+  padding: 15px 18px;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #495057;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.employer-register-card input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.employer-register-card .register-btn {
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff; /* Blue to match the accent */
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.2s;
+}
+
+.employer-register-card .register-btn:hover {
+  background-color: #0056b3;
+}
+
+.employer-switch-auth {
+  color: #007bff;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.employer-switch-auth:hover {
+  text-decoration: underline;
+}

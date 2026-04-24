@@ -1,0 +1,95 @@
+.job-applicants-container {
+  padding: 40px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.job-header-info {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #eee;
+}
+
+.job-header-info h2 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.job-header-info p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.loading-container, .no-applicants-message {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #777;
+  margin-top: 50px;
+}
+
+.applicants-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.applicant-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.applicant-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.applicant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.applicant-card .profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #f0f0f0;
+}
+
+.applicant-info h4 {
+  margin: 0 0 5px 0;
+  font-size: 1.2rem;
+}
+
+.applicant-info p {
+  margin: 0 0 15px 0;
+  color: #888;
+}
+
+.resume-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.resume-link:hover {
+  text-decoration: underline;
+}
+
+.applied-date {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #aaa;
+  width: 100%;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 10px;
+}

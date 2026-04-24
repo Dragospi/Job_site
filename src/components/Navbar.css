@@ -1,0 +1,167 @@
+.navbar {
+  display: flex;
+  height: 70px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  color: #2563eb;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  cursor: pointer;
+  font-weight: 500;
+  color: #475569;
+  transition: color 0.2s ease;
+}
+
+.nav-links li:hover {
+  color: #2563eb;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.login, .register {
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.login {
+  border: 1.5px solid #2563eb;
+  background: transparent;
+  color: #2563eb;
+}
+
+.login:hover {
+  background: #f1f5ff;
+}
+
+.register {
+  background: #2563eb;
+  color: white;
+  border: none;
+}
+
+.register:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.notification-icon {
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  color: #475569;
+}
+
+.notification-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 10px;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #38bdf8;
+  object-fit: cover;
+}
+
+.jobs-menu {
+  position: relative;
+  padding: 10px 0;
+}
+
+.jobs_category, .profile-dropdown {
+  position: absolute;
+  top: calc(100% - 5px);
+  right: 0;
+  background: white;
+  list-style: none;
+  padding: 8px 0;
+  width: 200px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  display: none;
+  z-index: 1100;
+}
+
+.jobs_category::before, .profile-dropdown::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  right: 0;
+  width: 100%;
+  height: 20px;
+  background: transparent;
+}
+
+.jobs-menu:hover .jobs_category,
+.navbar-profile-container:hover .profile-dropdown {
+  display: block !important;
+}
+
+.jobs_category li, .dropdown-item {
+  padding: 12px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin: 0;
+  color: #000000;
+}
+
+.jobs_category li:hover, .dropdown-item:hover {
+  background: #f1f5ff;
+}
+
+.logout {
+  color: #ef4444;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-buttons { flex-direction: column; width: 100%; }
+  .login, .register { width: 100%; text-align: center; }
+}

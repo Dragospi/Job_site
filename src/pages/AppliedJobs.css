@@ -1,0 +1,104 @@
+.status-badge.interview {
+  background-color: #22c55e; /* Green */
+  color: white;
+}
+/* ================= APPLIED JOBS ================= */
+.applied-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.applied-container h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.applied-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.applied-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  border: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.applied-card:hover {
+  transform: translateX(10px);
+  border-color: #2563eb;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.05);
+}
+
+.applied-info h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 8px 0;
+}
+
+.applied-company {
+  color: #2563eb;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.applied-details {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.status-badge {
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Default 'Applied' status */
+.status-badge.applied {
+  background: #e0e7ff;
+  color: #4f46e5;
+}
+
+/* 'Interview Scheduled' status */
+.status-badge.interview {
+  background-color: #dcfce7; /* Light Green */
+  color: #16a34a;
+}
+
+/* 'Rejected' status */
+.status-badge.rejected {
+  background-color: #fee2e2; /* Light Red */
+  color: #dc2626;
+}
+
+.applied-date {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-top: 15px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .applied-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}

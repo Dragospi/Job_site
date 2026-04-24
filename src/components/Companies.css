@@ -1,0 +1,88 @@
+/* ================= COMPANIES SECTION ================= */
+.companies {
+  padding: 100px 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.companies h2 {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #0f172a;
+}
+
+.companies > p {
+  color: #64748b;
+  font-size: 18px;
+  margin-bottom: 50px;
+}
+
+.company-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.company-card {
+  background: white;
+  padding: 40px 25px;
+  border-radius: 24px;
+  border: 1px solid #f1f5f9;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.company-card::after {
+  content: "View Jobs →";
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background: #2563eb;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.company-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.1);
+  border-color: #dbeafe;
+}
+
+.company-card:hover::after {
+  bottom: 0;
+  opacity: 1;
+}
+
+.company-card h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.company-card p {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.company-card .rating {
+  display: inline-block;
+  background: #fef9c3;
+  color: #854d0e;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 15px;
+}

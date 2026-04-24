@@ -1,0 +1,64 @@
+.login-container,
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.login-card,
+.register-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-card h2,
+.register-card h2 {
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.login-card form,
+.register-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-card input,
+.register-card input {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1em;
+}
+
+.login-card .login,
+.register-card .register {
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4a90e2;
+  color: white;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-card .login:hover,
+.register-card .register:hover {
+  background-color: #357abd;
+}
+
+.switch-auth {
+  color: #4a90e2;
+  cursor: pointer;
+  font-weight: bold;
+}

@@ -1,0 +1,39 @@
+/* ================= GLOBAL STYLES ================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: #e1e3e7; /* Final color based on image */
+  color: #1e293b;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ================= AUTH PAGES ================= */
+.auth-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.auth-page-wrapper main {
+  width: 100%;
+  max-width: 400px;
+}
