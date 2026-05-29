@@ -31,55 +31,60 @@ function EmployerRegister() {
   };
 
   return (
-    <div className="employer-register-card">
-      <h2>Create Your Employer Account</h2>
-      <p className="subtitle">Join our platform to find the best talent.</p>
-      <form onSubmit={handleRegister}>
-        <input
-          type="text"
-          placeholder="Your Full Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <input
-          type="email"
-          placeholder="Your Company Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Your Company's Name"
-          value={companyName}
-          onChange={(e) => setCompanyName(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Create a Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Confirm Your Password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        />
-        <button type="submit" className="register-btn">
-          Register as Employer
-        </button>
-      </form>
-      <p>
-        Already have an account?{" "}
-        <span onClick={() => navigate("/employer-login")} className="employer-switch-auth">
-          Login Here
-        </span>
-      </p>
+    <div className="employer-register-container">
+      <div className="employer-register-card">
+        <h2>Create Your Employer Account</h2>
+        <p className="subtitle">Join our platform to find the best talent.</p>
+        <form onSubmit={handleRegister}>
+          <input
+            type="text"
+            placeholder="Your Full Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          <input
+            type="email"
+            placeholder="Your Company Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Your Company's Name"
+            value={companyName}
+            onChange={(e) => setCompanyName(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Create a Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Confirm Your Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+          <button type="submit" className="register-btn">
+            Register as Employer
+          </button>
+        </form>
+        <p>
+          Already have an account?{" "}
+          <span
+            onClick={() => navigate("/employer-login")}
+            className="employer-switch-auth"
+          >
+            Login Here
+          </span>
+        </p>
+      </div>
     </div>
   );
 }

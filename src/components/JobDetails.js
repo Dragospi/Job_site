@@ -4,6 +4,7 @@ import axios from "axios";
 import "./JobDetails.css";
 import { useSelector } from "react-redux";
 import SimilarJobs from "./SimilarJobs";
+import { FaMapMarkerAlt, FaMoneyBillWave, FaBriefcase, FaClock } from "react-icons/fa";
 
 function JobDetails() {
   const { id } = useParams();
@@ -57,39 +58,66 @@ function JobDetails() {
 
   return (
     <div className="job-details-page">
-      <div className="job-details-container">
-        <div className="job-details-main">
-          <div className="job-header-details">
+      <div className="job-details-main">
+        <div className="job-details-content">
+          <div className="job-header">
             <h1>{job.title}</h1>
-            <p>
-              {job.company} - {job.location}
-            </p>
+            <p className="company">{job.company}</p>
+            <div className="job-info-grid">
+              <div className="info-item">
+                <FaMapMarkerAlt />
+                <span className="value">{job.location}</span>
+              </div>
+              <div className="info-item">
+                <FaMoneyBillWave />
+                <span className="value">{job.salary}</span>
+              </div>
+              <div className="info-item">
+                <FaBriefcase />
+                <span className="value">{job.type || "Full-time"}</span>
+              </div>
+              <div className="info-item">
+                <FaClock />
+                <span className="value">Posted: {new Date(job.createdAt).toLocaleDateString()}</span>
+              </div>
+            </div>
           </div>
-          <div className="job-body-details">
-            <h2>Job Description</h2>
+
+          <div className="job-section">
+            <h3>Job Description</h3>
             <p>{job.description}</p>
-            <h2>Skills Required</h2>
-            <ul className="skills-list">
-              {job.skills.map((skill, index) => (
-                <li key={index}>{skill}</li>
+          </div>
+
+          <div className="job-section">
+            <h3>Skills Required</h3>
+            <div className="skills-container">
+              {(job.skills || []).map((skill, index) => (
+                <span key={index} className="skill-tag">{skill}</span>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
+
         <div className="job-details-sidebar">
-          <div className="company-info-card">
-            <h2>About Company</h2>
-            <p>{job.aboutCompany || "No information provided."}</p>
+          <div className="sidebar-card">
             <button
-              className="apply-btn-sidebar"
+              className="apply-btn"
               onClick={() => handleApply(job._id)}
             >
               Apply Now
             </button>
+            {/* Placeholder for save job button */}
+            <button className="save-btn">Save Job</button>
+          </div>
+          <div className="sidebar-card">
+            <h3>About {job.company}</h3>
+            <p>{job.aboutCompany || "No information provided about the company."}</p>
           </div>
         </div>
       </div>
-      <SimilarJobs currentJobId={job._id} skills={job.skills} />
+      {job.skills && job.skills.length > 0 && (
+        <SimilarJobs currentJobId={job._id} skills={job.skills} />
+      )}
     </div>
   );
 }

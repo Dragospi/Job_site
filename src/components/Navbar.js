@@ -73,11 +73,7 @@ function Navbar({ resetSearch }) {
           </h2>
         </div>
 
-        {/* Spacer to push profile to the right */}
-        <div style={{ flexGrow: 1 }}></div>
-
-        {/* RIGHT SIDE - ADMIN */}
-        <div className="nav-buttons">
+        <div className="nav-auth">
           <div className="navbar-profile-container" ref={menuRef}>
             <img
               src={profileImage}
@@ -124,77 +120,75 @@ function Navbar({ resetSearch }) {
       </div>
 
       {/* RIGHT SIDE */}
-      <div className="nav-buttons">
-        {isLoggedIn ? (
-          <>
-            {user && user.role !== 'admin' && (
-              <div className="notification-icon" onClick={() => setOpenNotifications(!openNotifications)}>
-                <FaBell />
-                {unreadCount > 0 && <span className="notification-count">{unreadCount}</span>}
-                {openNotifications && <Notifications />}
-              </div>
-            )}
-            <div className="navbar-profile-container" ref={menuRef}>
-              <img
-                src={profileImage}
-                alt="profile"
-                className="profile-pic"
-                onClick={() => setOpenMenu(!openMenu)}
-              />
-              {openMenu && (
-                <div className="profile-dropdown">
-                  {user ? (
-                    <>
-                      <div className="dropdown-item" onClick={() => navigate("/applied-jobs")}>
-                        Applied Jobs
-                      </div>
-                      <div className="dropdown-item" onClick={() => navigate("/saved-jobs")}>
-                        Saved Jobs
-                      </div>
-                      <div className="dropdown-item" onClick={() => navigate("/profile")}>
-                        View Profile
-                      </div>
-                      <div className="dropdown-item" onClick={() => navigate("/edit-profile")}>
-                        Edit Profile
-                      </div>
-                      <div className="dropdown-item logout" onClick={handleLogout}>
-                        Logout
-                      </div>
-                    </>
-                  ) : employer ? (
-                    <>
-                      <div className="dropdown-item" onClick={() => navigate("/employer/dashboard")}>
-                        Dashboard
-                      </div>
-                      <div className="dropdown-item" onClick={() => navigate("/emp-profile")}>
-                        View Profile
-                      </div>
-                      <div className="dropdown-item" onClick={() => navigate("/emp-edit-profile")}>
-                        Edit Profile
-                      </div>
-                      <div className="dropdown-item logout" onClick={handleLogout}>
-                        Logout
-                      </div>
-                    </>
-                  ) : null}
+      <div className="nav-auth">
+          {isLoggedIn ? (
+            <>
+              {user && user.role !== 'admin' && (
+                <div className="notification-icon" onClick={() => setOpenNotifications(!openNotifications)}>
+                  <FaBell />
+                  {unreadCount > 0 && <span className="notification-count">{unreadCount}</span>}
+                  {openNotifications && <Notifications />}
                 </div>
               )}
-            </div>
-          </>
-        ) : (
-          <>
-            <button className="login" onClick={() => navigate("/login")}>
-              Login
-            </button>
-            <button className="register" onClick={() => navigate("/register")}>
-              Register
-            </button>
-            <button className="register" onClick={() => navigate("/employer-login")}>
-              For Employers
-            </button>
-          </>
-        )}
-      </div>
+              <div className="navbar-profile-container" ref={menuRef}>
+                <img
+                  src={profileImage}
+                  alt="profile"
+                  className="profile-pic"
+                  onClick={() => setOpenMenu(!openMenu)}
+                />
+                {openMenu && (
+                  <div className="profile-dropdown">
+                    <div className="dropdown-header">
+                      Signed in as <strong>{user?.name || employer?.name}</strong>
+                    </div>
+                    <div className="dropdown-divider"></div>
+                    {user ? (
+                      <>
+                        <div className="dropdown-item" onClick={() => navigate("/profile")}>
+                          Your Profile
+                        </div>
+                        <div className="dropdown-item" onClick={() => navigate("/applied-jobs")}>
+                          Applied Jobs
+                        </div>
+                        <div className="dropdown-item" onClick={() => navigate("/saved-jobs")}>
+                          Saved Jobs
+                        </div>
+                      </>
+                    ) : employer ? (
+                      <>
+                        <div className="dropdown-item" onClick={() => navigate("/employer/dashboard")}>
+                          Dashboard
+                        </div>
+                        <div className="dropdown-item" onClick={() => navigate("/employer/jobs")}>
+                          Manage Jobs
+                        </div>
+                      </>
+                    ) : null}
+                    <div className="dropdown-divider"></div>
+                    <div className="dropdown-item logout" onClick={handleLogout}>
+                      Logout
+                    </div>
+                  </div>
+                )}
+              </div>
+            </>
+          ) : (
+            <>
+              <button className="nav-btn login" onClick={() => navigate("/login")}>
+                Login
+              </button>
+              <button className="nav-btn register" onClick={() => navigate("/register")}>
+                Register
+              </button>
+              <div className="employer-link-container">
+                <a href="/employer-login" className="employer-link">
+                  For Employers
+                </a>
+              </div>
+            </>
+          )}
+        </div>
     </nav>
   );
 }

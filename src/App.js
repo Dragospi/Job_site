@@ -1,6 +1,7 @@
 import React from "react";
+import "./App.css";
 import {
-  BrowserRouter as Router,
+   BrowserRouter as Router,
   Routes,
   Route,
   useNavigate,
@@ -14,6 +15,8 @@ import JobPage from "./pages/JobPage";
 import JobDetails from "./components/JobDetails";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import OfferBanner from "./components/OfferBanner";
+import Categories from "./components/Categories";
 // import Notifications from "./components/Notifications";
 
 // --- Page Components ---
@@ -29,6 +32,7 @@ import ScheduleInterview from "./pages/ScheduleInterview";
 import ApplicantProfile from "./pages/ApplicantProfile";
 import UserProfile from "./pages/ViewProfile";
 import UserApplications from "./pages/AppliedJobs";
+import SavedJobs from "./pages/SavedJobs";
 import AdminDashboard from "./pages/AdminDashboard";
 // import ManageUsers from "./pages/ManageUsers";
 // import ManageJobs from "./pages/ManageJobs";
@@ -70,7 +74,13 @@ const HomePage = () => {
     }).toString();
     navigate(`/jobs?${queryParams}`);
   };
-  return <Hero onSearch={handleSearch} />;
+  return (
+    <>
+      <Hero onSearch={handleSearch} />
+      <OfferBanner />
+      <Categories />
+    </>
+  );
 };
 
 function App() {
@@ -80,28 +90,28 @@ function App() {
         {/* Routes with Main Layout */}
         <Route path="/" element={<MainLayout><HomePage /></MainLayout>} />
         <Route path="/jobs" element={<MainLayout><JobPage /></MainLayout>} />
-        <Route path="/job-details/:id" element={<MainLayout><JobDetails /></MainLayout>} />
-        {/* <Route path="/about-us" element={<MainLayout><AboutUs /></MainLayout>} /> */}
-        {/* <Route path="/contact-us" element={<MainLayout><ContactUs /></MainLayout>} /> */}
+        <Route path="/job/:id" element={<MainLayout><JobDetails /></MainLayout>} />
 
         {/* Auth and Standalone Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        {/* <Route path="/job-seeker" element={<JobSeeker />} /> */}
-        {/* <Route path="/employer" element={<Employer />} /> */}
         <Route path="/employer-login" element={<EmpLogin />} />
         <Route path="/employer-register" element={<EmpRegister />} />
-        {/* <Route path="/admin-login" element={<AdminLogin />} /> */}
 
         {/* Job Seeker Routes */}
         <Route
-          path="/user-profile"
-          element={<JobSeekerRoutes element={UserProfile} />}
+          path="/profile"
+          element={<MainLayout><JobSeekerRoutes element={UserProfile} /></MainLayout>}
         />
         <Route
-          path="/my-applications"
-          element={<JobSeekerRoutes element={UserApplications} />}
+          path="/applied-jobs"
+          element={<MainLayout><JobSeekerRoutes element={UserApplications} /></MainLayout>}
         />
+        <Route
+          path="/saved-jobs"
+          element={<MainLayout><JobSeekerRoutes element={SavedJobs} /></MainLayout>}
+        />
+
 
         {/* Employer Routes */}
         <Route
@@ -113,36 +123,26 @@ function App() {
           element={<EmployerRoutes element={PostAJob} />}
         />
         <Route
-          path="/employer-profile"
+          path="/employer/profile"
           element={<EmployerRoutes element={EmpProfile} />}
         />
-        {/* <Route path="/my-jobs" element={<EmployerRoutes element={MyJobs} />} /> */}
         <Route
-          path="/applicants/:jobId"
+          path="/employer/applicants/:jobId"
           element={<EmployerRoutes element={AllApplicants} />}
         />
         <Route
-          path="/schedule-interview/:applicationId"
+          path="/employer/schedule-interview/:applicationId"
           element={<EmployerRoutes element={ScheduleInterview} />}
         />
-        {/* <Route
-          path="/notifications"
-          element={<EmployerRoutes element={Notifications} />}
-        /> */}
          <Route
-          path="/applicant/:applicationId"
+          path="/employer/applicant/:applicationId"
           element={<EmployerRoutes element={ApplicantProfile} />}
         />
 
         {/* Admin Routes */}
         <Route path="/admin" element={<AdminRoutes element={AdminLayout} />}>
           <Route path="dashboard" element={<AdminDashboard />} />
-          {/* <Route path="users" element={<ManageUsers />} /> */}
-          {/* <Route path="companies" element={<ManageCompanies />} /> */}
-          {/* <Route path="jobs" element={<ManageJobs />} /> */}
         </Route>
-
-        {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </Router>
   );

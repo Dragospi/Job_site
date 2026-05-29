@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   user: null,
   employer: null,
+  isAuthenticated: false,
 };
 
 const authSlice = createSlice({
@@ -17,11 +18,13 @@ const authSlice = createSlice({
         state.user = action.payload.user; // Correctly extract the user object
         state.employer = null;
       }
+      state.isAuthenticated = true;
     },
 
     logout: (state) => {
       state.user = null;
       state.employer = null;
+      state.isAuthenticated = false;
     },
 
     updateProfile: (state, action) => {

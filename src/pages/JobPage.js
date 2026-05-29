@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import JobList from "../components/JobList";
-import FilterBar from "../components/FilterBar"; // Import the new component
+import JobFilters from "../components/JobFilters";
 import "./JobPage.css";
 
 function JobPage() {
@@ -12,25 +12,22 @@ function JobPage() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Memoize search params to avoid re-calculating on every render
   const searchParams = React.useMemo(() => new URLSearchParams(location.search), [location.search]);
 
-  const initialFilters = {
+  const initialFilters = React.useMemo(() => ({
     skills: searchParams.get("skills") || "",
     location: searchParams.get("location") || "",
     experience: searchParams.get("experience") || "",
-  };
+    type: searchParams.get("type") || "",
+    salary: searchParams.get("salary") || "",
+  }), [searchParams]);
 
   useEffect(() => {
     const fetchJobs = async () => {
       try {
         setLoading(true);
         const res = await axios.get("http://localhost:5000/api/jobs", {
-          params: {
-            skills: initialFilters.skills,
-            location: initialFilters.location,
-            experience: initialFilters.experience,
-          },
+          params: initialFilters,
         });
         setJobs(res.data);
         setError(null);
@@ -43,32 +40,36 @@ function JobPage() {
     };
 
     fetchJobs();
-  }, [location.search, initialFilters.skills, initialFilters.location, initialFilters.experience]); // Dependency array updated for clarity
+  }, [initialFilters]);
 
-  const handleSearch = (searchCriteria) => {
-    const { skills, location, experience } = searchCriteria;
-    const queryParams = new URLSearchParams({
-      skills: skills || "",
-      location: location || "",
-      experience: experience || "",
-    }).toString();
+  const handleFilterChange = (filters) => {
+    const queryParams = new URLSearchParams(filters).toString();
     navigate(`/jobs?${queryParams}`);
   };
 
   return (
-    <div className="job-page-container">
-      <FilterBar initialFilters={initialFilters} onSearch={handleSearch} />
-      {loading && <p className="loading-text">Loading jobs...</p>}
-      {error && <p className="error-text">{error}</p>}
-      {!loading && !error && (
-        <>
-          {jobs.length > 0 ? (
-            <JobList jobs={jobs} />
-          ) : (
-            <p className="loading-text">No jobs found matching your criteria.</p>
+    <div className="job-page">
+      <div className="job-page-content">
+        <div className="filters-container">
+          <JobFilters onFilterChange={handleFilterChange} initialFilters={initialFilters} />
+        </div>
+        <div className="job-listings-container">
+          {loading && <p className="status-text">Loading jobs...</p>}
+          {error && <p className="status-text error">{error}</p>}
+          {!loading && !error && (
+            <>
+              <div className="job-count">
+                Showing <strong>{jobs.length}</strong> jobs
+              </div>
+              {jobs.length > 0 ? (
+                <JobList jobs={jobs} />
+              ) : (
+                <p className="status-text">No jobs found matching your criteria.</p>
+              )}
+            </>
           )}
-        </>
-      )}
+        </div>
+      </div>
     </div>
   );
 }

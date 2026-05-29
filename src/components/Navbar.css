@@ -1,94 +1,49 @@
 .navbar {
   display: flex;
-  height: 70px;
   justify-content: space-between;
   align-items: center;
-  padding: 0 60px;
+  padding: 15px 40px;
   background: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  border-bottom: 1px solid #eee;
 }
 
-.logo {
-  text-decoration: none;
-  font-size: 24px;
-  font-weight: bold;
-  color: #2563eb;
+/* LEFT */
+.logo h2 {
+  color: #1a73e8;
+  cursor: pointer;
 }
 
+/* CENTER */
 .nav-links {
   display: flex;
   gap: 30px;
   list-style: none;
-  margin: 0;
-  padding: 0;
+  align-items: center;
 }
 
 .nav-links li {
-  cursor: pointer;
   font-weight: 500;
-  color: #475569;
-  transition: color 0.2s ease;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
 .nav-links li:hover {
-  color: #2563eb;
+  color: #1a73e8;
 }
 
-.nav-buttons {
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* RIGHT */
+.nav-auth,
+.nav-admin {
   display: flex;
   align-items: center;
   gap: 15px;
-}
-
-.login, .register {
-  padding: 8px 20px;
-  border-radius: 25px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-size: 14px;
-}
-
-.login {
-  border: 1.5px solid #2563eb;
-  background: transparent;
-  color: #2563eb;
-}
-
-.login:hover {
-  background: #f1f5ff;
-}
-
-.register {
-  background: #2563eb;
-  color: white;
-  border: none;
-}
-
-.register:hover {
-  background: #1d4ed8;
-  transform: translateY(-1px);
-}
-
-.notification-icon {
-  position: relative;
-  cursor: pointer;
-  font-size: 20px;
-  color: #475569;
-}
-
-.notification-count {
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  background-color: red;
-  color: white;
-  border-radius: 50%;
-  padding: 2px 6px;
-  font-size: 10px;
 }
 
 .profile-pic {
@@ -96,72 +51,125 @@
   height: 40px;
   border-radius: 50%;
   cursor: pointer;
-  border: 2px solid #38bdf8;
   object-fit: cover;
 }
 
-.jobs-menu {
-  position: relative;
-  padding: 10px 0;
-}
 
-.jobs_category, .profile-dropdown {
-  position: absolute;
-  top: calc(100% - 5px);
-  right: 0;
-  background: white;
-  list-style: none;
-  padding: 8px 0;
-  width: 200px;
-  border-radius: 10px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-  display: none;
-  z-index: 1100;
-}
-
-.jobs_category::before, .profile-dropdown::before {
-  content: "";
-  position: absolute;
-  top: -15px;
-  right: 0;
-  width: 100%;
-  height: 20px;
-  background: transparent;
-}
-
-.jobs-menu:hover .jobs_category,
-.navbar-profile-container:hover .profile-dropdown {
-  display: block !important;
-}
-
-.jobs_category li, .dropdown-item {
-  padding: 12px 20px;
-  font-size: 14px;
+.nav-btn {
+  padding: 9px 18px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease;
-  margin: 0;
-  color: #000000;
+  transition: all 0.3s;
 }
 
-.jobs_category li:hover, .dropdown-item:hover {
-  background: #f1f5ff;
+.nav-btn.login {
+  background-color: #f0f4ff;
+  color: #4a90e2;
 }
 
-.logout {
-  color: #ef4444;
-  font-weight: bold;
+.nav-btn.login:hover {
+  background-color: #e1e9f8;
 }
 
-@media (max-width: 768px) {
-  .navbar {
+.nav-btn.register {
+  background-color: #4a90e2;
+  color: white;
+  border-color: #4a90e2;
+}
+
+.nav-btn.register:hover {
+  background-color: #357abd;
+  border-color: #357abd;
+}
+
+.employer-link-container {
+  border-left: 1px solid #e0e0e0;
+  margin-left: 10px;
+  padding-left: 20px;
+}
+
+.employer-link {
+  color: #555;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.employer-link:hover {
+  color: #4a90e2;
+}
+
+/* Updated Dropdown Styles */
+.profile-dropdown {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 240px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  border: 1px solid #f0f0f0;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.dropdown-header {
+  padding: 15px 20px;
+  background-color: #f9fafb;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.dropdown-header strong {
+  font-weight: 600;
+  color: #333;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background-color: #f0f0f0;
+  margin: 5px 0;
+}
+
+.dropdown-item {
+  padding: 12px 20px;
+  font-size: 0.95rem;
+  color: #444;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: #f4f8fe;
+}
+
+.dropdown-item.logout:hover {
+  background-color: #fff5f5;
+}
+
+@media (max-width: 992px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: white;
     flex-direction: column;
-    height: auto;
-    padding: 15px;
-    gap: 15px;
+    padding: 20px 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
   }
-}
 
-@media (max-width: 480px) {
-  .nav-buttons { flex-direction: column; width: 100%; }
-  .login, .register { width: 100%; text-align: center; }
+  .nav-links.mobile-menu-open {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-auth {
+    gap: 10px;
+  }
 }

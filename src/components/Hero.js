@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Hero.css";
+import { FaSearch, FaBriefcase, FaMapMarkerAlt } from "react-icons/fa";
 
 function Hero({ onSearch }) {
   const [skills, setSkills] = useState("");
@@ -8,7 +9,6 @@ function Hero({ onSearch }) {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // Pass the search criteria up to the parent component
     onSearch({ skills, experience, location });
   };
 
@@ -16,11 +16,11 @@ function Hero({ onSearch }) {
     <div className="hero-section">
       <div className="hero-content">
         <h1>Find Your Dream Job</h1>
-        <p>Search from 100+ available jobs across top companies</p>
+        <p>Search from thousands of available jobs across top companies</p>
 
         <form className="search-form" onSubmit={handleSearch}>
           <div className="search-field">
-            <i className="fa fa-search"></i>
+            <FaSearch className="icon" />
             <input
               type="text"
               placeholder="Skills, Designations, Companies"
@@ -29,18 +29,21 @@ function Hero({ onSearch }) {
             />
           </div>
           <div className="search-field">
+            <FaBriefcase className="icon" />
             <select
               value={experience}
               onChange={(e) => setExperience(e.target.value)}
             >
-              <option value="">Experience</option>
+              <option value="">Select Experience</option>
               <option value="0-1">0-1 Years</option>
               <option value="1-3">1-3 Years</option>
               <option value="3-5">3-5 Years</option>
-              <option value="5+">5+ Years</option>
+              <option value="5-10">5-10 Years</option>
+              <option value="10+">10+ Years</option>
             </select>
           </div>
           <div className="search-field">
+            <FaMapMarkerAlt className="icon" />
             <input
               type="text"
               placeholder="Location"

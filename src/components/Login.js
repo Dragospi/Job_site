@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./Auth.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -30,35 +29,37 @@ function Login() {
   };
 
   return (
-    <div className="login-card">
-      <h2>User Login</h2>
+    <div className="login-container">
+      <div className="login-card">
+        <h2>User Login</h2>
 
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="Enter Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Enter Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit" className="login">
-          Login
-        </button>
-      </form>
+        <form onSubmit={handleLogin}>
+          <input
+            type="email"
+            placeholder="Enter Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Enter Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button type="submit" className="login">
+            Login
+          </button>
+        </form>
 
-      <p style={{ marginTop: '20px' }}>
-        Are you an employer?{" "}
-        <span onClick={() => navigate("/employer-login")} className="switch-auth">
-          Login here
-        </span>
-      </p>
+        <p style={{ marginTop: '20px' }}>
+          Are you an employer?{" "}
+          <span onClick={() => navigate("/employer-login")} className="switch-auth">
+            Login here
+          </span>
+        </p>
+      </div>
     </div>
   );
 }

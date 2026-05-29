@@ -1,29 +1,50 @@
-.job-page-container {
+.job-page {
+  padding: 40px 20px;
+  background-color: #f8f9fa;
+}
+
+.job-page-content {
+  max-width: 1300px;
+  margin: 0 auto;
   display: flex;
   gap: 30px;
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  align-items: flex-start;
 }
 
-.loading-text,
-.error-text {
+.filters-container {
+  flex: 1;
+  min-width: 280px;
+}
+
+.job-listings-container {
+  flex: 3;
+}
+
+.status-text {
   text-align: center;
   font-size: 1.2rem;
-  padding: 50px;
   color: #555;
-  width: 100%; /* Ensure it takes full width in the flex container */
+  padding: 40px;
 }
 
-.error-text {
-  color: #d9534f;
+.status-text.error {
+  color: #dc3545;
 }
 
-/* Responsive layout for mobile */
-@media (max-width: 768px) {
-  .job-page-container {
+.job-count {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 992px) {
+  .job-page-content {
     flex-direction: column;
-    gap: 20px;
+  }
+  .filters-container {
+    min-width: 100%;
   }
 }

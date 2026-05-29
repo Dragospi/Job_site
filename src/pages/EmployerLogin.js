@@ -32,33 +32,35 @@ function EmployerLogin() {
   };
 
   return (
-    <div className="login-card">
-      <h2>Employer & Admin Login</h2>
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="Enter Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Enter Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit" className="login">
-          Login
-        </button>
-      </form>
-      <p>
-        Don't have an employer account?{" "}
-        <span onClick={() => navigate("/employer-register")} className="switch-auth">
-          Register here
-        </span>
-      </p>
+    <div className="login-container">
+      <div className="login-card">
+        <h2>Employer & Admin Login</h2>
+        <form onSubmit={handleLogin}>
+          <input
+            type="email"
+            placeholder="Enter Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Enter Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button type="submit" className="login">
+            Login
+          </button>
+        </form>
+        <p>
+          Don't have an employer account?{" "}
+          <span onClick={() => navigate("/employer-register")} className="switch-auth">
+            Register here
+          </span>
+        </p>
+      </div>
     </div>
   );
 }

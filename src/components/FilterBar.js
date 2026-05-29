@@ -19,42 +19,40 @@ function FilterBar({ initialFilters, onSearch }) {
   };
 
   return (
-    <div className="filter-bar-container">
-      <div className="filter-bar-content">
-        <form className="filter-form" onSubmit={handleSearch}>
-          <div className="filter-field">
-            <input
-              type="text"
-              placeholder="Skills, Designation, Company"
-              value={skills}
-              onChange={(e) => setSkills(e.target.value)}
-            />
-          </div>
-          <div className="filter-field">
-            <select
-              value={experience}
-              onChange={(e) => setExperience(e.target.value)}
-            >
-              <option value="">Experience</option>
-              <option value="0-1">0-1 Years</option>
-              <option value="1-3">1-3 Years</option>
-              <option value="3-5">3-5 Years</option>
-              <option value="5+">5+ Years</option>
-            </select>
-          </div>
-          <div className="filter-field">
-            <input
-              type="text"
-              placeholder="Location"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-            />
-          </div>
-          <button type="submit" className="filter-search-btn">
-            Search
-          </button>
-        </form>
-      </div>
+    <div className="filter-bar">
+      <form className="filter-form" onSubmit={handleSearch}>
+        <div className="filter-field">
+          <input
+            type="text"
+            placeholder="Skills, Designation, Company"
+            value={skills}
+            onChange={(e) => setSkills(e.target.value)}
+          />
+        </div>
+        <div className="filter-field">
+          <select
+            value={experience}
+            onChange={(e) => setExperience(e.target.value)}
+          >
+            <option value="">Experience</option>
+            <option value="0-1">0-1 Years</option>
+            <option value="1-3">1-3 Years</option>
+            <option value="3-5">3-5 Years</option>
+            <option value="5+">5+ Years</option>
+          </select>
+        </div>
+        <div className="filter-field">
+          <input
+            type="text"
+            placeholder="Location"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+          />
+        </div>
+        <button type="submit" className="filter-search-btn">
+          Search
+        </button>
+      </form>
     </div>
   );
 }

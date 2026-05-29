@@ -1,109 +1,99 @@
-/* ================= HERO SECTION ================= */
 .hero-section {
-  background-color: #1a5fff; /* Your existing blue */
-  padding: 100px 20px; /* Increased padding */
-  text-align: center;
-  color: white;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+      center/cover no-repeat;
+  height: 70vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 20px;
 }
 
 .hero-content h1 {
-  font-size: 3rem; /* Larger font size */
-  margin-bottom: 1rem;
-  font-weight: 700; /* Bold */
-  letter-spacing: -0.5px;
-  max-width: 800px;
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
 }
 
 .hero-content p {
-  font-size: 1.25rem; /* Slightly larger subtitle */
-  margin-bottom: 3rem;
-  color: rgba(255, 255, 255, 0.85);
-  font-weight: 400;
+  font-size: 1.3rem;
+  margin-bottom: 40px;
 }
 
-/* ================= SEARCH FORM ================= */
 .search-form {
   display: flex;
-  align-items: center;
-  background-color: white;
-  border-radius: 50px;
+  background: #fff;
+  border-radius: 12px;
   padding: 10px;
-  width: 100%;
-  max-width: 800px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  gap: 10px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .search-field {
   display: flex;
   align-items: center;
   flex: 1;
-  padding: 0 15px;
-  border-right: 1px solid #e0e0e0;
+  position: relative;
+  border-right: 2px solid #f0f0f0;
 }
 
 .search-field:last-of-type {
   border-right: none;
 }
 
-.search-field i {
-  color: #1a5fff;
-  margin-right: 10px;
+.search-field .icon {
+  font-size: 1.2rem;
+  color: #888;
+  margin: 0 15px;
 }
 
 .search-field input,
 .search-field select {
+  width: 100%;
   border: none;
   outline: none;
-  width: 100%;
-  font-size: 16px;
-  background-color: transparent;
+  padding: 15px 10px;
+  font-size: 1rem;
+  background: transparent;
+  color: #333;
 }
 
 .search-btn {
-  background-color: #1a5fff;
-  color: white;
+  background-color: #007bff;
+  color: #fff;
   border: none;
-  border-radius: 50px;
-  padding: 12px 30px;
-  font-size: 16px;
-  font-weight: bold;
+  padding: 0 30px;
+  border-radius: 8px;
   cursor: pointer;
-  margin-left: 10px;
-  transition: background-color 0.3s;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
 }
 
 .search-btn:hover {
-  background-color: #0045e0;
+  background-color: #0056b3;
 }
 
-/* ================= RESPONSIVE DESIGN ================= */
 @media (max-width: 768px) {
   .search-form {
     flex-direction: column;
-    border-radius: 20px;
     padding: 20px;
-    gap: 15px;
   }
-
   .search-field {
     border-right: none;
-    border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 15px;
-    width: 100%;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
   }
-
   .search-field:last-of-type {
     border-bottom: none;
-    padding-bottom: 0;
+    margin-bottom: 0;
   }
-
   .search-btn {
-    width: 100%;
-    padding: 15px;
-    margin-left: 0;
+    padding: 15px 30px;
   }
 }
